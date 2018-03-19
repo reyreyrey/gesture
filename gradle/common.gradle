@@ -1,0 +1,19 @@
+buildscript {
+    repositories {
+        maven { url "http://10.66.72.173:8081/nexus/content/repositories/GoogleMaven/" }
+        maven { url "http://10.66.72.173:8081/nexus/content/repositories/JCenter/" }
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url "http://10.66.72.173:8081/nexus/content/repositories/GoogleMaven/" }
+        maven { url "http://10.66.72.173:8081/nexus/content/repositories/JCenter/" }
+        maven { url "http://10.66.72.173:8081/nexus/content/repositories/MavenCentral/" }
+        maven { url "http://10.66.72.173:8081/nexus/content/repositories/releases/" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

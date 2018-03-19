@@ -1,0 +1,42 @@
+apply plugin: 'maven'
+apply from: '../gradle/lib_module.gradle'
+
+android.defaultConfig.minSdkVersion = 15
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://10.66.72.173:8081/nexus/content/repositories/releases/") {
+//            repository(url: "http://10.66.72.51:8081/nexus/content/repositories/releases/") {
+//                authentication(userName: "admin", password: "1234qwer")
+                authentication(userName: "deployerMobile", password: "1234qwer")
+            }
+
+            pom.groupId = "com.rea"
+            pom.artifactId = 'gesture'
+            pom.version = "0.0.1.20180205"
+
+            pom.project {
+                name 'gesture'
+                packaging "com.rea"
+                description 'Belong to Rea'
+                url 'https://www.barry.com'
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/androideventbus-1.0.2.jar')
+    compile "com.android.support:support-v4:$rootProject.ext.support"
+    compile "com.android.support:recyclerview-v7:$rootProject.ext.support"
+    compile "com.android.support:appcompat-v7:$rootProject.ext.support"
+    provided 'com.rea:commonUtils:+'
+}

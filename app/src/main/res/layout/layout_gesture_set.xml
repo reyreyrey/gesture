@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2f3d4c"
+    android:fitsSystemWindows="true"
+    android:id="@+id/view_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:navigationIcon="@null">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/set_gesture"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/fontsize_18" />
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@id/btn_right"
+            android:layout_width="45dp"
+            android:layout_margin="10dp"
+            android:layout_height="45dp"
+            android:visibility="invisible"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/image_skip" />
+
+        <com.gesture.views.ShowGestureView
+            android:id="@+id/showgesview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dip" />
+
+        <TextView
+            android:id="@+id/tv_gesture_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/showgesview"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/draw_ges"
+            android:textColor="#a1a5ad"
+            android:textSize="18dip" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <com.gesture.views.Lock9View
+            android:id="@+id/lock_9_view"
+            style="@style/LockViewStyle"
+            app:lock9_autoLink="false"
+            app:lock9_enableVibrate="true"
+            app:lock9_lineColor="#ff33b5e5"
+            app:lock9_lineWidth="4dp"
+            app:lock9_nodeAreaExpand="@dimen/nodeAreaExpand"
+            app:lock9_nodeSize="@dimen/nodeSize"
+            app:lock9_vibrateTime="20" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/bottom"
+        android:textSize="@dimen/fontsize_16"
+        android:text="暂不设置"/>
+
+</LinearLayout>

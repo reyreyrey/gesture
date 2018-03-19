@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gesture" >
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"
+        />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application android:allowBackup="true">
+        <receiver android:name=".helpers.ClearPwdReceiver">
+            <intent-filter>
+                <action android:name="loginSuccess" />
+                <action android:name="loginOut" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
